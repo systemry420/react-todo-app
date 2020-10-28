@@ -26,6 +26,10 @@ class App extends React.Component {
       text: e.target.value
     })
   }
+
+  handleDelete(id){
+    alert(id);
+  }
   
   
   addTodo = e => {
@@ -59,7 +63,7 @@ class App extends React.Component {
         </div>
         <div className="todos">
           {this.state.data.map((d, i)=>{
-            return <Todo check={()=>this.checkItem} {...d} key={i} />
+            return <Todo delete={()=>this.handleDelete(i)} check={()=>this.checkItem} {...d} key={i} />
           })}
         </div>
       </div>

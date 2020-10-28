@@ -2,13 +2,14 @@ import React from 'react'
 import './App.css';
 
 
-function Todo(data) {
+function Todo(props) {
+    console.log(props.delete);
     return (
         <div className="todo">
-            <input readOnly onChange={data.checkItem} type="checkbox" name="todos" checked={data.completed} />
-            <span className="name">{data.name}</span>
+            <input readOnly onChange={props.checkItem} type="checkbox" name="todos" checked={props.completed} />
+            <span className="name">{props.name}</span>
             <span className="delete">
-                X
+                <button onClick={props.delete}>X</button>
             </span>
         </div>
     )
