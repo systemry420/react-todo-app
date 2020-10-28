@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
 import Todo from './Todo'
+import Form from './Form'
 
 class App extends React.Component {
   constructor(props){
@@ -50,16 +51,11 @@ class App extends React.Component {
       <div className="App">
         <h1>TODOS</h1>
         <div className="input">
-          <form onSubmit={this.addTodo}>
-            <input 
-              name="input"   //name to access it
-              value={this.state.text}   // value to control it
-              type="text" 
-              placeholder="Enter todo item" 
-              onChange={this.handleChange}   // to handle the change
-            />
-            <button type="submit">Add</button>
-          </form>
+          <Form 
+            onSubmit={this.addTodo} 
+            onChange={this.handleChange} 
+            value={this.state.text} 
+          />
         </div>
         <div className="todos">
           {this.state.data.map((d, i)=>{
