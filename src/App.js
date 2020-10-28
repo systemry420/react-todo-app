@@ -35,11 +35,14 @@ class App extends React.Component {
 
     // push the new item
     newArr.push({ name: this.state.text, completed: false})
-    
+
     // set new data
     this.setState({
       data: newArr
     })
+
+    // reset input
+    this.setState({text: ''})
   }
 
   render() {
