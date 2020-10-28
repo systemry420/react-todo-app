@@ -28,7 +28,15 @@ class App extends React.Component {
   }
 
   handleDelete(id){
-    alert(id);
+    // obtain a new array, without the deleted element
+    const filtered = this.state.data.filter((d, i)=>{
+      return i!== id 
+    })
+
+    // set the new array
+    this.setState({
+      data: filtered
+    })
   }
   
   

@@ -3,7 +3,7 @@ import './App.css';
 
 
 function Todo(props) {
-    console.log(props.delete);
+    // console.log(props.delete);
     return (
         <div className="todo">
             <input readOnly onChange={props.checkItem} type="checkbox" name="todos" checked={props.completed} />
