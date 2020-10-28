@@ -29,13 +29,23 @@ class App extends React.Component {
   
   addTodo = e => {
     e.preventDefault()
-    console.log('e', e.target.input.value);
+
+    // create a copy of data
+    const newArr = this.state.data.slice()
+
+    // push the new item
+    newArr.push({ name: this.state.text, completed: false})
+    
+    // set new data
+    this.setState({
+      data: newArr
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <h1>TODOS {this.state.text}</h1>
+        <h1>TODOS</h1>
         <div className="input">
           <form onSubmit={this.addTodo}>
             <input 
