@@ -7,18 +7,27 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      checked: false,
       text: "",
       data: [
-        { name: "aaa", completed: false },
-        { name: "bbb", completed: true },
-        { name: "ccc", completed: false },
+        { id: 1, name: "aaa", completed: false },
+        { id: 2, name: "bbb", completed: true },
+        { id: 3, name: "ccc", completed: false },
       ]
     }
   }
 
   
-  checkItem() {
-    
+  checkItem(id) {
+    console.log(this);
+    // const tasks = this.state.data.slice()
+    // const updatedTasks = [].map(task => {
+    //   if (id === task.id) {
+    //     return {...task, completed: !task.completed}
+    //   }
+    //   return task;
+    // });
+    // this.setState({data: updatedTasks});
   }
 
   handleChange = (e)=> {
@@ -43,6 +52,9 @@ class App extends React.Component {
   addTodo = e => {
     e.preventDefault()
 
+    // check if empty input
+    if(!e.target.input.value) return;
+
     // create a copy of data
     const newArr = this.state.data.slice()
 
@@ -66,12 +78,20 @@ class App extends React.Component {
           <Form 
             onSubmit={this.addTodo} 
             onChange={this.handleChange} 
-            value={this.state.text} 
+            value={this.state.text}
           />
         </div>
         <div className="todos">
           {this.state.data.map((d, i)=>{
-            return <Todo delete={()=>this.handleDelete(i)} check={()=>this.checkItem} {...d} key={i} />
+            return (
+              <Todo 
+                id={'todo-'+d.id} 
+                delete={()=>this.handleDelete(i)} 
+                checked={d.completed} 
+                check={()=>this.checkItem} 
+                {...d} key={i} 
+              />
+            )
           })}
         </div>
       </div>

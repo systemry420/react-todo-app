@@ -42,8 +42,11 @@ input {
 }
 
 .todo {
-    border-bottom: 1px solid #666;
+    /* border: 1px solid #666; */
     padding: .7em;
+    margin: 7px;
     display: flex;
+    border-radius: 7px;
+    box-shadow: 0 0 1px 1px gray;
     justify-content: space-between;
 }
